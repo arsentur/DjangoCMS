@@ -1,4 +1,5 @@
 import os
+
 gettext = lambda s: s
 DATA_DIR = os.path.dirname(os.path.dirname(__file__))
 """
@@ -18,7 +19,6 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -30,24 +30,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
-
-
-
 
 
 ROOT_URLCONF = 'modern_business.urls'
 
-
-
 WSGI_APPLICATION = 'modern_business.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
-
 
 
 # Internationalization
@@ -63,7 +54,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
@@ -77,11 +67,10 @@ STATICFILES_DIRS = (
 )
 SITE_ID = 1
 
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'modern_business', 'templates'),],
+        'DIRS': [os.path.join(BASE_DIR, 'modern_business', 'templates'), ],
         'OPTIONS': {
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
@@ -104,7 +93,6 @@ TEMPLATES = [
         },
     },
 ]
-
 
 MIDDLEWARE_CLASSES = (
     'cms.middleware.utils.ApphookReloadMiddleware',
@@ -152,17 +140,25 @@ INSTALLED_APPS = (
 )
 
 LANGUAGES = (
-    ## Customize this
+    # Customize this
     ('ru', gettext('ru')),
+    ('en', gettext('en')),
 )
 
 CMS_LANGUAGES = {
-    ## Customize this
+    # Customize this
     1: [
         {
             'redirect_on_fallback': True,
             'code': 'ru',
             'name': gettext('ru'),
+            'hide_untranslated': False,
+            'public': True,
+        },
+        {
+            'redirect_on_fallback': True,
+            'code': 'en',
+            'name': gettext('en'),
             'hide_untranslated': False,
             'public': True,
         },
@@ -175,7 +171,7 @@ CMS_LANGUAGES = {
 }
 
 CMS_TEMPLATES = (
-    ## Customize this
+    # Customize this
     ('fullwidth.html', 'Fullwidth'),
     ('sidebar_left.html', 'Sidebar Left'),
     ('sidebar_right.html', 'Sidebar Right')
@@ -188,17 +184,17 @@ CMS_PLACEHOLDER_CONF = {}
 DATABASES = {
     'default': {
         'CONN_MAX_AGE': 0,
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
         'HOST': 'localhost',
-        'NAME': 'project.db',
-        'PASSWORD': '',
+        'NAME': 'modern_business',
+        'PASSWORD': '0000',
         'PORT': '',
-        'USER': ''
+        'USER': 'root'
     }
 }
 
 MIGRATION_MODULES = {
-    
+
 }
 
 THUMBNAIL_PROCESSORS = (
