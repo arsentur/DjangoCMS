@@ -108,7 +108,6 @@ MIDDLEWARE_CLASSES = (
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware'
 )
-
 INSTALLED_APPS = (
     'djangocms_admin_style',
     'django.contrib.auth',
@@ -124,19 +123,25 @@ INSTALLED_APPS = (
     'sekizai',
     'treebeard',
     'djangocms_text_ckeditor',
-    'filer',
-    'easy_thumbnails',
+
     'djangocms_column',
     'djangocms_link',
     'cmsplugin_filer_file',
     'cmsplugin_filer_folder',
     'cmsplugin_filer_image',
     'cmsplugin_filer_utils',
-    'djangocms_style',
     'djangocms_snippet',
     'djangocms_googlemap',
     'djangocms_video',
+
+    'aldryn_style',
+    'easy_thumbnails',
+    'mptt',
+    'filer',
+    'aldryn_bootstrap3',
+
     'modern_business'
+
 )
 
 LANGUAGES = (
@@ -173,8 +178,7 @@ CMS_LANGUAGES = {
 CMS_TEMPLATES = (
     # Customize this
     ('fullwidth.html', 'Fullwidth'),
-    ('sidebar_left.html', 'Sidebar Left'),
-    ('sidebar_right.html', 'Sidebar Right')
+    ('home.html', 'Home'),
 )
 
 CMS_PERMISSION = True
@@ -203,3 +207,58 @@ THUMBNAIL_PROCESSORS = (
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters'
 )
+
+CKEDITOR_SETTINGS = {
+    # 'language': '{{ language }}',
+    # 'toolbar': 'CMS',
+    # 'skin': 'moono',
+    # 'toolbar_CMS': [
+    #     ['Undo', 'Redo'],
+    #     ['cmsplugins', '-', 'ShowBlocks'],
+    #     ['Format', 'Styles'],
+    #     ['TextColor', 'BGColor', '-', 'PasteText', 'PasteFromWord'],
+    #     ['Maximize', ''],
+    #     '/',
+    #     ['Bold', 'Italic', 'Underline', '-', 'Subscript', 'Superscript', '-', 'RemoveFormat'],
+    #     ['JustifyLeft', 'JustifyCenter', 'JustifyRight'],
+    #     ['Link', 'Unlink', 'Anchor'],
+    #     ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Table', 'Filer Image'],
+    #     ['Source']
+    # ],
+    # 'extraPlugins': 'filerimage',
+    # 'removePlugins': 'image',
+    'stylesSet': [
+        {
+            'name': 'Page header H1',
+            'element': 'h1',
+            'attributes': {
+                'class': 'page-header'
+            }
+        },
+        {
+            'name': 'Page header H2',
+            'element': 'h2',
+            'attributes': {
+                'class': 'page-header'
+            }
+        },
+        {
+            'name': 'Page header H3',
+            'element': 'h3',
+            'attributes': {
+                'class': 'page-header'
+            }
+        },
+        {
+            'name': 'Code',
+            'element': 'code'
+        },
+        {
+            'name': 'Code Block',
+            'element': 'pre',
+            'attributes': {
+                'class': 'code'
+            }
+        },
+    ]
+}
