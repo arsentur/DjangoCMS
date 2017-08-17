@@ -140,7 +140,9 @@ INSTALLED_APPS = (
     'filer',
     'aldryn_bootstrap3',
 
-    'modern_business'
+    'modern_business',
+    'polls',
+    'polls_cms_integration',
 
 )
 
